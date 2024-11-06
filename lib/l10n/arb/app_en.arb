@@ -9,6 +9,15 @@
   "language": "Language",
   "invalidUsernameOrPassword":"Invalid username or password",
   "emailCantBeEmpty": "Email can not be empty",
-  "passwordShouldHaveAtLeastEightCharacters":"Password should have at least 8 characters."
+  "passwordShouldHaveAtLeastEightCharacters":"Password should have at least 8 characters.",
+  "addNewContact": "Add New Contact",
+  "pleaseEnterTheContactDetailsBelow": "Please enter the contact details below.",
+  "name": "Name",
+  "number": "Number",
+  "cancel": "Cancel",
+  "add": "Add",
+  "contacts": "Contacts",
+  "noContactsFound": "No contacts found!",
+  "pleaseAddANewContact": "Please add a new contact."
 
 }

@@ -9,5 +9,14 @@
   "language": "Idioma",
   "invalidUsernameOrPassword":"Nombre de usuario o contraseña no válidos",
   "emailCantBeEmpty": "El correo electrónico no puede estar vacío.",
-  "passwordShouldHaveAtLeastEightCharacters":"La contraseña debe tener al menos 8 caracteres."
+  "passwordShouldHaveAtLeastEightCharacters":"La contraseña debe tener al menos 8 caracteres.",
+  "addNewContact": "Agregar nuevo contacto",
+  "pleaseEnterTheContactDetailsBelow": "Por favor ingrese los datos de contacto a continuación.",
+  "name": "Nombre",
+  "number": "Número",
+  "cancel": "Cancelar",
+  "add": "Agregar",
+  "contacts": "Contactos",
+  "noContactsFound": "¡No se encontraron contactos!",
+  "pleaseAddANewContact": "Por favor agregue un nuevo contacto."
 }
