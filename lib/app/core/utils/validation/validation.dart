@@ -10,6 +10,15 @@ class EmailFieldValidator {
     return null;
   }
 }
+class NameValidator {
+  static String? validate(String? value) {
+    if (value == null || value.isEmpty && Get.context != null) {
+      return translation(Get.context!).nameCantBeEmpty;
+    }
+
+    return null;
+  }
+}
 
 class PasswordFieldValidator {
   static String? validate(String? value) {

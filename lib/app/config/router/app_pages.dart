@@ -1,6 +1,5 @@
 import 'package:flutterapptask/app/config/router/app_router_constants.dart';
 import 'package:flutterapptask/app/features/auth/presentation/binding/auth_binding.dart';
-import 'package:flutterapptask/app/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutterapptask/app/features/auth/presentation/screen/login_screen.dart';
 import 'package:flutterapptask/app/features/contacts/presentation/screen/contact_screen.dart';
 import 'package:flutterapptask/app/features/home/presentation/binding/home_binding.dart';

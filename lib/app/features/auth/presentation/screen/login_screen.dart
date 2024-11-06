@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapptask/app/config/router/app_router_constants.dart';
 import 'package:flutterapptask/app/config/themes/app_color.dart';
 import 'package:flutterapptask/app/config/themes/app_style.dart';
 import 'package:flutterapptask/app/config/themes/button_style.dart';
-import 'package:flutterapptask/app/core/constants/app_constants.dart';
 import 'package:flutterapptask/app/core/constants/assets_path.dart';
 import 'package:flutterapptask/app/core/localization/language_constant.dart';
 import 'package:flutterapptask/app/core/utils/validation/validation.dart';
 import 'package:flutterapptask/app/core/widgets/custom_image_assets.dart';
 import 'package:flutterapptask/app/features/auth/presentation/controller/login_controller.dart';
-import 'package:flutterapptask/l10n/l10n.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -54,8 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Gap(5),
                    Text(
                       translation(context).welcomeBack,
-                      style: TextStyle(
-                        fontSize: 30,
+                      style:  TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.08,
                         fontWeight: FontWeight.bold,
                         color: Pallets.onSurfaceColor,
                       ),

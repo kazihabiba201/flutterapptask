@@ -21,5 +21,7 @@
   "pleaseAddANewContact": "Por favor agregue un nuevo contacto.",
   "showOnlyAvailableDoctors": "Mostrar solo médicos disponibles",
   "phoneCantBeEmpty": "El teléfono no puede estar vacío",
-  "invalidPhoneNumber": "Número de teléfono no válido"
+  "nameCantBeEmpty": "Nombre no puede estar vacía",
+  "invalidPhoneNumber": "¡Número de teléfono no válido! & Introduzca 10 dígitos"
+
 }

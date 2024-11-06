@@ -21,6 +21,7 @@
   "pleaseAddANewContact": "Please add a new contact.",
   "showOnlyAvailableDoctors": "Show only available doctors",
   "phoneCantBeEmpty": "Phone Cant Be Empty",
-  "invalidPhoneNumber": "Invalid Phone Number"
+  "nameCantBeEmpty": "Name Cant Be Empty",
+  "invalidPhoneNumber": "Invalid Phone Number! & Enter 10 digits"
 
 }

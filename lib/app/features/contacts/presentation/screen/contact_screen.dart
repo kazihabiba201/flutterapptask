@@ -17,6 +17,7 @@ class ContactScreen extends StatefulWidget {
 class _ContactScreenState extends State<ContactScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<Map<String, dynamic>> _contacts = [];
 
   bool _isLoading = true;
@@ -60,95 +61,103 @@ class _ContactScreenState extends State<ContactScreen> {
 
     }
     Get.dialog(
-      AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        backgroundColor: Colors.white,
-        title: Center(
-            child: Text(
-              translation(context).addNewContact,
-              style: TextStyle(fontWeight: FontWeight.w500),
-            )),
-        content:  Text(
-          translation(context).pleaseEnterTheContactDetailsBelow,
-          textAlign: TextAlign.center,
-        ),
-        actionsAlignment: MainAxisAlignment.center,
-        actions: [
-          TextFormField(
-            controller: nameController,
-            decoration: appInputDecoration(
-              translation(context).name,
-              suffixIcon: false,
-            ),
+      Form( key: _formKey,
+        child: AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          // Gap(5),
-          const SizedBox(
-            height: 10,
+          backgroundColor: Colors.white,
+          title: Center(
+              child: Text(
+                translation(context).addNewContact,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              )),
+          content:  Text(
+            translation(context).pleaseEnterTheContactDetailsBelow,
+            textAlign: TextAlign.center,
           ),
-          TextFormField(
-            controller: phoneController,
-            validator: PhoneFieldValidator.validate,
-            keyboardType: TextInputType.phone,
-            decoration: appInputDecoration(
-              translation(context).number,
-              suffixIcon: false,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: 100,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    backgroundColor: Colors.grey.shade200,
-                  ),
-                  child:  Text(
-                    translation(context).cancel,
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
+          actionsAlignment: MainAxisAlignment.center,
+          actions: [
+            TextFormField(
+              controller: nameController,
+              validator: NameValidator.validate,
+              decoration: appInputDecoration(
+                translation(context).name,
+                suffixIcon: false,
               ),
-              SizedBox(
-                width: 100,
-                child: ElevatedButton(
-                  onPressed: ()async {
-                    if(id == null){
-                      await _addItem();}
-                    nameController.text = '';
-                    phoneController.text = '';
-                    Get.back();
+            ),
+            // Gap(5),
+            const SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              controller: phoneController,
+              validator: PhoneFieldValidator.validate,
+              keyboardType: TextInputType.phone,
+              decoration: appInputDecoration(
+                translation(context).number,
+                suffixIcon: false,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Get.back();
+                      nameController.text = '';
+                      phoneController.text = '';
 
-                  },
-                  style: ElevatedButton.styleFrom(
+                    },
+                    style: ElevatedButton.styleFrom(
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      backgroundColor:
-                      Pallets.colorBlue // Green color for "Yes"
-                  ),
-                  child:  Text(
-                    translation(context).add,
-                    style: TextStyle(color: Colors.white),
+                      backgroundColor: Colors.grey.shade200,
+                    ),
+                    child:  Text(
+                      translation(context).cancel,
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: ElevatedButton(
+                    onPressed: ()async {if (_formKey.currentState?.validate()?? false){
+                      if(id == null){
+                        await _addItem();}
+                      Get.back();
+                      nameController.text = '';
+                      phoneController.text = '';
+                     }
+
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        backgroundColor:
+                        Pallets.colorBlue // Green color for "Yes"
+                    ),
+                    child:  Text(
+                      translation(context).add,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

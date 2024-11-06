@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     SizedBox(
-                      width: 50,
+                      width:  MediaQuery.of(context).size.width * 0.14,
                       child: ElevatedButton(
                           style: appButtonStyle(Pallets.colorBlue),
                           onPressed: () {
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const Gap(5),
                     SizedBox(
-                      width: 50,
+                      width: MediaQuery.of(context).size.width * 0.14,
                       child: ElevatedButton(
                           style: appButtonStyle(Pallets.colorBlue),
                           onPressed: () {
@@ -108,12 +108,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Card(color: Colors.white,
                             child: ListTile(
                               leading: Stack(
-                                alignment: Alignment.bottomRight, // Aligns the availability icon to the bottom right
+                                alignment: Alignment.bottomRight,
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: Colors.grey.shade300, // Placeholder color
+                                    backgroundColor: Colors.grey.shade300,
                                     child: ClipOval(
-                                      child:  checkUrl(doctor.profileImg), // Fallback if no image URL
+                                      child:  checkUrl(doctor.profileImg),
                                     ),
                                   ),
                                   Icon(
@@ -128,9 +128,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ],
                               ),
-                              title: SizedBox(width:150, child: Text(doctor.name!, overflow: TextOverflow.ellipsis,)),
+                              title: SizedBox(width:MediaQuery.of(context).size.width * 0.4, child: Text(doctor.name!, overflow: TextOverflow.ellipsis,)),
                               subtitle: Text("Specialization: ${doctor.specialization!.isEmpty ? 'N/A' : doctor.specialization }"),
-                              trailing: Text("Fee: ${doctor.visitFee!.isEmpty ?  '0' :doctor.visitFee }"),
+                              trailing: Text("Fee: ${doctor.visitFee!.isEmpty ?  'N/A' :doctor.visitFee }"),
 
                             ),
                           );
