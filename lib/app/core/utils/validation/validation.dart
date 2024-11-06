@@ -1,7 +1,10 @@
+import 'package:flutterapptask/app/core/localization/language_constant.dart';
+import 'package:get/get.dart';
+
 class EmailFieldValidator {
   static String? validate(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Email can\'t be empty';
+    if (value == null || value.isEmpty && Get.context != null) {
+      return translation(Get.context!).emailCantBeEmpty;
     }
 
     return null;
@@ -10,6 +13,9 @@ class EmailFieldValidator {
 
 class PasswordFieldValidator {
   static String? validate(String? value) {
-    return (value == null || value.length < 8) ? 'Password should have at least 8 characters.' : null;
+    if ((value == null || value.length < 8) && Get.context != null) {
+      return translation(Get.context!).passwordShouldHaveAtLeastEightCharacters;
+    }
+    return null;
   }
 }

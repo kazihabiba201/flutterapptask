@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapptask/app/config/router/app_router_constants.dart';
 import 'package:flutterapptask/app/config/themes/app_color.dart';
 import 'package:flutterapptask/app/config/themes/app_style.dart';
 import 'package:flutterapptask/app/config/themes/button_style.dart';
 import 'package:flutterapptask/app/core/constants/app_constants.dart';
 import 'package:flutterapptask/app/core/constants/assets_path.dart';
+import 'package:flutterapptask/app/core/localization/language_constant.dart';
 import 'package:flutterapptask/app/core/utils/validation/validation.dart';
 import 'package:flutterapptask/app/core/widgets/custom_image_assets.dart';
 import 'package:flutterapptask/app/features/auth/presentation/controller/login_controller.dart';
+import 'package:flutterapptask/l10n/l10n.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -26,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
     print("Widget is rebuilding");
     return  WillPopScope(
       onWillPop: () async {
@@ -48,8 +52,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 110,
                     ),
                     const Gap(5),
-                    const Text(
-                      AppConstants.loginTitle,
+                   Text(
+                      translation(context).welcomeBack,
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -62,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       validator:    EmailFieldValidator.validate,
                       onChanged: (value) => loginController.username.value = value,
                       decoration: appInputDecoration(
-                        AppConstants.email,
+                        translation(context).email,
                         suffixIcon: false,
                       ),
                     ),
@@ -73,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       validator: PasswordFieldValidator.validate,
                       onChanged: (value) => loginController.password.value = value,
                       decoration: appInputDecoration(
-                        AppConstants.password,
+                        translation(context).password,
                         isObscured: loginController.isObscured,
                         toggleObscure: loginController.togglePasswordVisibility,
                       ),
@@ -93,13 +97,15 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: appButtonStyle(Colors.transparent),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  controller.login();
-
+                                  controller.login(context);
+                                  Get.offNamed(RoutesPaths.home);
                                   emailController.clear();
                                   passwordController.clear();
+                                  loginController.errorMessage.value = '';
+
                                 }
                               },
-                              child: successButtonChild(AppConstants.loginTextButton),
+                              child: successButtonChild(translation(context).login),
                             );
                           },
                         ),

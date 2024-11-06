@@ -1,0 +1,14 @@
+{
+
+  "settings": "Settings",
+  "doctorList": "Doctor List.",
+  "login": "Login",
+  "email":"Email" ,
+  "welcomeBack": "Welcome back!",
+  "password": "Password",
+  "language": "Language",
+  "invalidUsernameOrPassword":"Invalid username or password",
+  "emailCantBeEmpty": "Email can not be empty",
+  "passwordShouldHaveAtLeastEightCharacters":"Password should have at least 8 characters."
+
+}

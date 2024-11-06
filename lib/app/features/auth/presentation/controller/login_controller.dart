@@ -1,6 +1,9 @@
 
+import 'package:flutter/material.dart';
 import 'package:flutterapptask/app/config/router/app_router_constants.dart';
+import 'package:flutterapptask/app/core/localization/language_constant.dart';
 import 'package:flutterapptask/app/core/utils/shared_preference.dart';
+import 'package:flutterapptask/main.dart';
 import 'package:get/get.dart';
 
 
@@ -36,20 +39,20 @@ class LoginController extends GetxController {
 
 
   // Login function
-  void login() async {
+  void login(BuildContext context) async {
     isLoading = true;
 
     if (username.value == 'testuser' && password.value == 'password123') {
       await SharedPrefsService.setLoggedIn(true);
       _isLoggedIn.value = true;
-      Get.offNamed(RoutesPaths.home);
+
       Get.snackbar(
         "Login Successfully!",
         "You have logged in successfully.",
         snackPosition: SnackPosition.BOTTOM,
       );
     }    else {
-      errorMessage.value = 'Invalid username or password';
+      errorMessage.value = translation(context).invalidUsernameOrPassword;
 
     }
 
@@ -59,7 +62,9 @@ class LoginController extends GetxController {
 
   Future<void> logout() async {
     await SharedPrefsService.clearLoginStatus();
+      clearLanguagePreference();
     _isLoggedIn.value = false;
+    MyApp.setLocale(Get.context!, Locale('en', 'US'));
     Get.offNamed(RoutesPaths.login);
   }
 }
