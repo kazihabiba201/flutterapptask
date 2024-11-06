@@ -2,7 +2,7 @@
 
 The project demonstrates various core Flutter concepts, including user authentication, persistent login, localization (English and Spanish), API integration, and local database handling using SQLite. The architecture follows the MVVM pattern with Clean Architecture, and state management is handled with GetX.
 
-![Screenshot 2023-11-08 045306](https://github.com/user-attachments/assets/65278f92-43ad-4e56-b65c-a15d2998b3ef)
+<img src= "https://github.com/user-attachments/assets/65278f92-43ad-4e56-b65c-a15d2998b3ef" height="700"/>
 
 
 
