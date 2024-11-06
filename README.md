@@ -86,7 +86,7 @@ Redirection: If the user was logged in before, they are automatically redirected
 ## Getting Started
 
 ### Prerequisites
-Before you begin, make sure you have Flutter installed on your system. If you need installation guidance, visit the official Flutter Website [click the image!] [![Flutter Website](https://meterpreter.org/wp-content/uploads/2018/09/flutter.png)](https://docs.flutter.dev/get-started/install).
+Before you begin, make sure you have Flutter installed on your system. If you need installation guidance, visit the official Flutter Website.
 ## Installation 
 
 To launch the CraftyBay Application, follow these steps:
