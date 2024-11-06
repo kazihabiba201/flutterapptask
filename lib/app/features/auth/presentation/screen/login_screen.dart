@@ -93,11 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: appButtonStyle(Colors.transparent),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  emailController.clear();
-                                  passwordController.clear();
                                   controller.login();
 
-
+                                  emailController.clear();
+                                  passwordController.clear();
                                 }
                               },
                               child: successButtonChild(AppConstants.loginTextButton),
