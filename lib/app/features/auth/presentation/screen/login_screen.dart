@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context);
+
     print("Widget is rebuilding");
     return  WillPopScope(
       onWillPop: () async {
@@ -98,12 +98,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   controller.login(context);
-                                  Get.offNamed(RoutesPaths.home);
-                                  emailController.clear();
-                                  passwordController.clear();
-                                  loginController.errorMessage.value = '';
 
                                 }
+
+                                emailController.clear();
+                                passwordController.clear();
+
                               },
                               child: successButtonChild(translation(context).login),
                             );

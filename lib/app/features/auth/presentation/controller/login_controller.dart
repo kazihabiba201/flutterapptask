@@ -45,7 +45,8 @@ class LoginController extends GetxController {
     if (username.value == 'testuser' && password.value == 'password123') {
       await SharedPrefsService.setLoggedIn(true);
       _isLoggedIn.value = true;
-
+      Get.offNamed(RoutesPaths.home);
+      errorMessage.value = '';
       Get.snackbar(
         "Login Successfully!",
         "You have logged in successfully.",

@@ -18,5 +18,8 @@
   "add": "Agregar",
   "contacts": "Contactos",
   "noContactsFound": "¡No se encontraron contactos!",
-  "pleaseAddANewContact": "Por favor agregue un nuevo contacto."
+  "pleaseAddANewContact": "Por favor agregue un nuevo contacto.",
+  "showOnlyAvailableDoctors": "Mostrar solo médicos disponibles",
+  "phoneCantBeEmpty": "El teléfono no puede estar vacío",
+  "invalidPhoneNumber": "Número de teléfono no válido"
 }

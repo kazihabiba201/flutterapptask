@@ -3,6 +3,7 @@ import 'package:flutterapptask/app/features/auth/presentation/binding/auth_bindi
 import 'package:flutterapptask/app/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutterapptask/app/features/auth/presentation/screen/login_screen.dart';
 import 'package:flutterapptask/app/features/contacts/presentation/screen/contact_screen.dart';
+import 'package:flutterapptask/app/features/home/presentation/binding/home_binding.dart';
 import 'package:flutterapptask/app/features/home/presentation/screen/home_screen.dart';
 import 'package:flutterapptask/app/features/setting/presentation/binding/setting_binding.dart';
 import 'package:flutterapptask/app/features/setting/presentation/screen/setting_screen.dart';
@@ -30,7 +31,7 @@ class AppPages {
     GetPage(
       name: RoutesPaths.home,
       page: () => const HomeScreen(),
-      // binding: HomeB(),
+      binding: HomeBinding(),
       transition: Transition.rightToLeft,
 
     ),

@@ -3,6 +3,7 @@ import 'package:flutterapptask/app/config/router/app_router_constants.dart';
 import 'package:flutterapptask/app/config/themes/app_color.dart';
 import 'package:flutterapptask/app/config/themes/button_style.dart';
 import 'package:flutterapptask/app/core/localization/language_constant.dart';
+import 'package:flutterapptask/app/features/home/presentation/controller/doctor_list_controller.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -14,8 +15,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DoctorController doctorController = DoctorController();
+  void initState() {
+    super.initState();
+
+    doctorController.fetchDoctorData();
+  }
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       backgroundColor: Pallets.surfaceColor,
       body: Padding(
@@ -26,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-               Text(
-                 translation(context).doctorList,
+                Text(
+                  translation(context).doctorList,
                   style: const TextStyle(
                       fontSize: 30,
                       color: Pallets.onSurfaceColor,
@@ -42,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             Get.toNamed(RoutesPaths.contacts);
                           },
-                          // },
+// },
                           child: const Icon(
                             Icons.person_add_outlined,
                             color: Colors.white,
@@ -56,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             Get.toNamed(RoutesPaths.setting);
                           },
-                          // },
+// },
                           child: const Icon(
                             Icons.settings,
                             color: Colors.white,
@@ -66,6 +75,72 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            const Gap(30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(translation(context).showOnlyAvailableDoctors, style: TextStyle(fontSize: 15, color: Colors.grey.shade800),),
+        Obx(() {
+      return Switch(
+        splashRadius: 8,
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        activeColor: Pallets.colorBlue,
+        inactiveThumbColor: Colors.grey,
+        inactiveTrackColor: Colors.grey.shade200,
+        value: doctorController.onlyAvailable.value,
+        onChanged: (value) {
+          doctorController.onlyAvailable(value);
+        },
+      );}),
+              ],
+            ),
+            Expanded(
+              child:   Obx(() {
+                    if (doctorController.isLoading.value) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (doctorController.filteredDoctors.isEmpty) {
+                      return const Center(child: Text("No doctors found"));
+                    } else {
+                      return ListView.builder(padding: EdgeInsets.zero,
+                        itemCount: doctorController.filteredDoctors.length,
+                        itemBuilder: (context, index) {
+                          final doctor = doctorController.filteredDoctors[index];
+                          return Card(color: Colors.white,
+                            child: ListTile(
+                              leading: Stack(
+                                alignment: Alignment.bottomRight, // Aligns the availability icon to the bottom right
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Colors.grey.shade300, // Placeholder color
+                                    child: ClipOval(
+                                      child:  checkUrl(doctor.profileImg), // Fallback if no image URL
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.circle,
+                                    color: doctor.availability != "Yes" ? Colors.white: Colors.white,
+                                    size: 14,
+                                  ),
+                                  Icon(
+                                    Icons.circle,
+                                    color: doctor.availability != "Yes" ? Colors.red.shade400: Colors.green.shade400,
+                                    size: 12,
+                                  ),
+                                ],
+                              ),
+                              title: SizedBox(width:150, child: Text(doctor.name!, overflow: TextOverflow.ellipsis,)),
+                              subtitle: Text("Specialization: ${doctor.specialization!.isEmpty ? 'N/A' : doctor.specialization }"),
+                              trailing: Text("Fee: ${doctor.visitFee!.isEmpty ?  '0' :doctor.visitFee }"),
+
+                            ),
+                          );
+                        },
+                      );
+                    }
+                  }),
+            ),
+
+
           ],
         ),
       ),
@@ -73,25 +148,29 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+
+final Set<String> _failedImageUrls = {};
+
 Widget checkUrl(String? url) {
-  // If the URL is null or empty, return a default icon or placeholder
-  if (url == null || url.isEmpty) {
-    return const Icon(Icons.person,
-        color: Colors.grey); // Default icon for no image
+
+  if (url == null || url.isEmpty || _failedImageUrls.contains(url)) {
+    return const Icon(Icons.person, color: Colors.grey);
   }
 
   return Image.network(
     url,
     fit: BoxFit.cover,
     errorBuilder: (context, error, stackTrace) {
-      // Display a default icon or placeholder image if the loading fails
-      return const Icon(Icons.error, color: Colors.red); // Customize this icon
+      // Cache this URL as failed to avoid reloading
+      if (url != null) {
+        _failedImageUrls.add(url);
+      }
+
+      return const Icon(Icons.person, color: Colors.grey);
     },
     loadingBuilder: (context, child, loadingProgress) {
-      if (loadingProgress == null) return child; // Image loaded
-      return const Center(
-        child: CircularProgressIndicator(), // Show loading indicator
-      );
+      if (loadingProgress == null) return child;
+      return const Center(child: CircularProgressIndicator());
     },
   );
 }

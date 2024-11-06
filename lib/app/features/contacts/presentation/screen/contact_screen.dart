@@ -78,7 +78,6 @@ class _ContactScreenState extends State<ContactScreen> {
         actions: [
           TextFormField(
             controller: nameController,
-            validator: EmailFieldValidator.validate,
             decoration: appInputDecoration(
               translation(context).name,
               suffixIcon: false,
@@ -90,7 +89,8 @@ class _ContactScreenState extends State<ContactScreen> {
           ),
           TextFormField(
             controller: phoneController,
-            validator: EmailFieldValidator.validate,
+            validator: PhoneFieldValidator.validate,
+            keyboardType: TextInputType.phone,
             decoration: appInputDecoration(
               translation(context).number,
               suffixIcon: false,
@@ -175,7 +175,7 @@ class _ContactScreenState extends State<ContactScreen> {
                   ),
                 ),
                 const Gap(10),
-                 Text(translation(context).add, style: TextStyle(fontSize: 30, color: Pallets.onSurfaceColor, fontWeight: FontWeight.bold),),
+                 Text(translation(context).contacts, style: TextStyle(fontSize: 30, color: Pallets.onSurfaceColor, fontWeight: FontWeight.bold),),
 
 
 

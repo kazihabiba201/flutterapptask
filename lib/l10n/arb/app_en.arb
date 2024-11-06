@@ -18,6 +18,9 @@
   "add": "Add",
   "contacts": "Contacts",
   "noContactsFound": "No contacts found!",
-  "pleaseAddANewContact": "Please add a new contact."
+  "pleaseAddANewContact": "Please add a new contact.",
+  "showOnlyAvailableDoctors": "Show only available doctors",
+  "phoneCantBeEmpty": "Phone Cant Be Empty",
+  "invalidPhoneNumber": "Invalid Phone Number"
 
 }
