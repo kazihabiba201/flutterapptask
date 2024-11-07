@@ -89,7 +89,7 @@ Redirection: If the user was logged in before, they are automatically redirected
 Before you begin, make sure you have Flutter installed on your system. If you need installation guidance, visit the official Flutter Website.
 ## Installation 
 
-To launch the CraftyBay Application, follow these steps:
+To launch the FlutterAppTask Application, follow these steps:
 
 Clone this repository to your computer:
 ```bash
