@@ -7,7 +7,7 @@ The project demonstrates various core Flutter concepts, including user authentic
 
 
 ## Overview
-This Flutter project implements the following features with a focus on Clean Architecture and the MVVM pattern:
+This Flutter project implements the following features with a focus on Clean Architecture and the MVP pattern:
 
 - `User Authentication:` A simple login screen with hardcoded credentials.
 - `Persistent Login State:` The app saves the login state using SharedPreferences, ensuring users stay logged in between app sessions.
