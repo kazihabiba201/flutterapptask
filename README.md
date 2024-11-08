@@ -1,6 +1,6 @@
 # Flutter Developer Assessment
 
-The project demonstrates various core Flutter concepts, including user authentication, persistent login, localization (English and Spanish), API integration, and local database handling using SQfLite. The architecture follows the MVVM pattern with Clean Architecture, and state management is handled with GetX.
+The project demonstrates various core Flutter concepts, including user authentication, persistent login, localization (English and Spanish), API integration, and local database handling using SQfLite. The architecture follows the MVP pattern with Clean Architecture, and state management is handled with GetX.
 
 <img src= "https://github.com/user-attachments/assets/65278f92-43ad-4e56-b65c-a15d2998b3ef" height="700"/>
 
@@ -30,7 +30,7 @@ This project uses the following Flutter packages:
 - `gap:` For managing consistent spacing between widgets in the UI.
 
 ## Features
-- `MVVM Architecture:` The app uses the MVVM (Model-View-ViewModel) pattern, which separates concerns between the UI, business logic, and data.
+- `MVP Architecture:` The app uses the MVP (Model-View-Presenter) pattern, which Separates UI, business logic, and data handling for a clean structure.
 - `State Management:` GetX is used to manage state and navigation across the app.
 - `SharedPreferences:`
 - - `Persistent Login:` Login credentials are stored in SharedPreferences so the user remains logged in even after the app restarts.
