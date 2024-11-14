@@ -1,19 +1,19 @@
 # Flutter Developer Assessment
 
-The project demonstrates various core Flutter concepts, including user authentication, persistent login, localization (English and Spanish), API integration, and local database handling using SQLite. The architecture follows the MVVM pattern with Clean Architecture, and state management is handled with GetX.
+The project demonstrates various core Flutter concepts, including user authentication, persistent login, localization (English and Spanish), API integration, and local database handling using SQfLite. The architecture follows the MVP pattern with Clean Architecture, and state management is handled with GetX.
 
 <img src= "https://github.com/user-attachments/assets/65278f92-43ad-4e56-b65c-a15d2998b3ef" height="700"/>
 
 
 
 ## Overview
-This Flutter project implements the following features with a focus on Clean Architecture and the MVVM pattern:
+This Flutter project implements the following features with a focus on Clean Architecture and the MVP pattern:
 
 - `User Authentication:` A simple login screen with hardcoded credentials.
 - `Persistent Login State:` The app saves the login state using SharedPreferences, ensuring users stay logged in between app sessions.
 - `Localization:` Support for English and Spanish languages with persistent language preference.
 - `API Integration:` Fetching and displaying data from an API, with filtering options for the doctor’s availability.
-- `Local Database:` Storing contacts locally using SQLite and displaying them on a dedicated Contacts screen.
+- `Local Database:` Storing contacts locally using SQfLite and displaying them on a dedicated Contacts screen.
 
 ## Dependencies
 
@@ -23,14 +23,14 @@ This project uses the following Flutter packages:
 - `flutter_localizations:` For built-in Flutter localization support.
 - `intl:` For managing and formatting translations.
 - `Dio:` For making API calls to fetch data.
-- `sqflite:` For SQLite database integration to store contacts.
+- `sqflite:` For SQfLite database integration to store contacts.
 - `get:` For state management and navigation using GetX.
-- `path_provider:` For accessing the file system to save SQFLite database locally.
+- `path_provider:` For accessing the file system to save SQfLite database locally.
 - `path:` For working with file paths.
 - `gap:` For managing consistent spacing between widgets in the UI.
 
 ## Features
-- `MVVM Architecture:` The app uses the MVVM (Model-View-ViewModel) pattern, which separates concerns between the UI, business logic, and data.
+- `MVP Architecture:` The app uses the MVP (Model-View-Presenter) pattern, which Separates UI, business logic, and data handling for a clean structure.
 - `State Management:` GetX is used to manage state and navigation across the app.
 - `SharedPreferences:`
 - - `Persistent Login:` Login credentials are stored in SharedPreferences so the user remains logged in even after the app restarts.
@@ -38,7 +38,7 @@ This project uses the following Flutter packages:
 - `Localization:` Supports both English and Spanish, storing the language setting and persisting using SharedPreferences.
 - `Persistent Login:` The app saves the login state using SharedPreferences, ensuring users are logged in between sessions.
 - `API Integration:` The app fetches data from an external API, displays a list, and allows filtering based on doctor availability.
-- `Local Database:` Uses SQLite (SQFLite package) to store and display contacts locally.
+- `Local Database:` Uses SQLite (SQfLite package) to store and display contacts locally.
 
 ## Tasks Implemented
 
@@ -69,10 +69,10 @@ Redirection: If the user was logged in before, they are automatically redirected
 - Loading State: A loading indicator is displayed while the API is being queried.
 
 ### Task 5: Local Database Storage for Contacts
-- Description: The app includes a Contacts screen where users can add new contacts, which are then saved into a local SQLite database.
+- Description: The app includes a Contacts screen where users can add new contacts, which are then saved into a local SQfLite database.
 - Functionality:
 - The floating action button opens a dialog to add a new contact’s name and number.
-- The contact information is stored in a local SQLite database.
+- The contact information is stored in a local SQfLite database.
 - The Contacts screen displays the list of saved contacts and refreshes automatically when new contacts are added.
 
 ## Usage
@@ -89,7 +89,7 @@ Redirection: If the user was logged in before, they are automatically redirected
 Before you begin, make sure you have Flutter installed on your system. If you need installation guidance, visit the official Flutter Website.
 ## Installation 
 
-To launch the CraftyBay Application, follow these steps:
+To launch the FlutterAppTask Application, follow these steps:
 
 Clone this repository to your computer:
 ```bash
