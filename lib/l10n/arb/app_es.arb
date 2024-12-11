@@ -22,6 +22,6 @@
   "showOnlyAvailableDoctors": "Mostrar solo médicos disponibles",
   "phoneCantBeEmpty": "El teléfono no puede estar vacío",
   "nameCantBeEmpty": "Nombre no puede estar vacía",
-  "invalidPhoneNumber": "¡Número de teléfono no válido! & Introduzca 10 dígitos"
+  "invalidPhoneNumber": "¡no válido! & Introduzca 10 dígitos"
 
 }

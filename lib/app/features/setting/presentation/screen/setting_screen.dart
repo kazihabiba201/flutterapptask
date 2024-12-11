@@ -17,11 +17,11 @@ class SettingScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Pallets.colorBlue,
         titleSpacing: 0,
-        title: Text(translation(context).settings, style: TextStyle(color: Colors.white),),
+        title: Text(translation(context).settings, style: const TextStyle(color: Colors.white),),
         leading: InkWell(onTap: (){Get.back();}, child: const Icon(Icons.arrow_back_ios, color: Colors.white,)),
         actions: [Padding(
-          padding: EdgeInsets.only(right: 16),
-          child: InkWell(onTap: (){loginController.logout();}, child: Icon(Icons.logout,color: Colors.white,)),
+          padding: const EdgeInsets.only(right: 16),
+          child: InkWell(onTap: (){loginController.logout();}, child: const Icon(Icons.logout,color: Colors.white,)),
         )],
       ),
       body: Column(

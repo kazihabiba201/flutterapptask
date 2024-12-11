@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             }
                             return ElevatedButton(
-                              style: appButtonStyle(Colors.transparent),
+                              style: appButtonStyle(Colors.transparent,BorderRadius.circular(6)),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   controller.login(context);

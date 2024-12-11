@@ -25,7 +25,6 @@ class MyApp extends StatefulWidget {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(newLocale);
   }
-
 }
 
 class _MyAppState extends State<MyApp> {
@@ -42,6 +41,7 @@ class _MyAppState extends State<MyApp> {
     getLocale().then((locale) => {setLocale(locale)});
     super.didChangeDependencies();
   }
+
   @override
   Widget build(BuildContext context) {
     final loginController = Get.put(LoginController());
@@ -49,16 +49,15 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Task',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: _locale,
-      initialRoute: loginController.isLoggedIn ? RoutesPaths.home : RoutesPaths.login,
+      initialRoute:
+      loginController.isLoggedIn ? RoutesPaths.home : RoutesPaths.home,
       getPages: AppPages.routes,
-      );
+    );
   }
 }
-
